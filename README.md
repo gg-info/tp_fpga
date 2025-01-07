@@ -1,8 +1,8 @@
 # tp_fpga
 
 # TP FPGA
-
-## 1 Tutoriel Quartus
+### GUIFFAULT Gabriel JACQUOT Nolan
+# 1 Tutoriel Quartus
 ### 1.1 Création d’un projet
 ### 1.2 Création d’un fichier VHDL
 ### 1.3 Fichier de contrainte
