@@ -84,3 +84,29 @@ Sur la sortie HDMI, faire rebondir le logo ENSEA, comme dans les
 lecteurs DVD (https://www.bouncingdvdlogo.com/).
 
 ### 2.1 Contrôleur HDMI
+
+Objectif : Le contrôleur HDMI génère les signaux nécessaires au HDMI Transmitter. Il génère également des signaux en direction de la circuitrie qui génère
+les images.
+
+1. Récupérez les ressources sur moodle.
+   
+Parmi ces ressources, vous trouverez :
+- Un projet Quartus disposant du pinout déjà configuré.
+- Le fichier DE10_Nano_HDMI_TX.vhd : C’est le top du projet, il définit les entrées/sorties.
+- Les fichiers I2C_HDMI_Config.v et I2C_Controller.v : Permettent de configurer le HDMI Transmitter. Ils sont déjà instanciés dans le top.
+- Le fichier hdmi_generator.vhd à compléter. Il est en partie instancié dans le top, à compléter également.
+
+Vous devrez simuler votre contrôleur HDMI avant de le tester sur la carte.
+
+C’est à vous de créer le testbench et le script de compilation (fichier .do).
+Le code de l’entity est donné en figure 1.
+
+2. Analysez l’entity :
+
+- Quel est le rôle des différents paramètres définis en generic ?
+- Quel est leur unité ?
+Voici le rôle de certain des signaux :
+- o_new_frame : Passe à l’état haut pendant 1 cycle d’horloge quand une image a fini d’être transmise
+- o_pixel_pos_x et o_pixel_pos_y : Positions en X et Y des pixels sur la zone d’affichage active.
+- o_pixel_address : Adresse du pixel obtenue par la formule suivante : o_pixel_pos_x + (h_res × o_pixel_pos_y)
+3. Rappelez le rôle des autres signaux
