@@ -12,7 +12,8 @@
 ### 1.7 Chenillard !
 # 2 Petit projet : Bouncing ENSEA Logo
 
-Objectif : Sur la sortie HDMI, faire rebondir le logo ENSEA, comme dans les
+### Objectif :
+Sur la sortie HDMI, faire rebondir le logo ENSEA, comme dans les
 lecteurs DVD (https://www.bouncingdvdlogo.com/).
 
 ### 2.1 Contrôleur HDMI
