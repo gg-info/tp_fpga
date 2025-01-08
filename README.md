@@ -162,7 +162,7 @@ begin
     o_led <= r_led;
 end architecture rtl;
 ```
-###Schéma correspondant
+## Schéma correspondant
 
 Schéma initial :
     Le schéma RTL montre une simple bascule (D flip-flop) pilotée par l'horloge et le signal i_rst_n. Cependant, cette configuration ne permettait pas de ralentir le clignotement.
@@ -184,6 +184,8 @@ Signal de reset (i_rst_n) :
 Signal r_led :
   - Contrôle interne de l'état de la LED.
   - Assigné à la sortie o_led.
+
+Le circuit fonctionne correctement, et la LED clignote à une fréquence visible (~0,5 Hz).
 
 ### 1.7 Chenillard !
 # 2 Petit projet : Bouncing ENSEA Logo
