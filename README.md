@@ -51,7 +51,7 @@ Quartus ne peut pas connaître ces informations, il faut donc lui préciser.
 ### 1.4 Programmation de la carte
 
 - Nous compilons l’intégralité du projet avec Compile Design
-- 
+
   ![image](https://github.com/user-attachments/assets/994a1629-bd31-488a-80af-822eaf947d79)
   Le code compile bien
 
