@@ -249,6 +249,10 @@ Assignation :
 
 Le chenillard fonctionne comme prévu. Chaque LED s’allume successivement avant de revenir au début.
 
+## Schéma correspondant
+
+![image](https://github.com/user-attachments/assets/a1fec6c4-8440-4224-8f36-3ca84740a552)
+
 
 # 2 Petit projet : Bouncing ENSEA Logo
 
