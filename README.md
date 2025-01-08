@@ -51,6 +51,10 @@ Quartus ne peut pas connaître ces informations, il faut donc lui préciser.
 ### 1.4 Programmation de la carte
 
 - Nous compilons l’intégralité du projet avec Compile Design
+- 
+  ![image](https://github.com/user-attachments/assets/994a1629-bd31-488a-80af-822eaf947d79)
+  Le code compile bien
+
 - Lancer l’outil de programmation du FPGA Tools > Programmer
 - Une fenêtre s’ouvre : Cliquez sur Auto Detect
 - Deux fenêtres pop-up apparaissent successivements, acceptez les paramètres par défaut
@@ -62,6 +66,7 @@ Quartus ne peut pas connaître ces informations, il faut donc lui préciser.
 - Programmez la carte
 - Cliquez sur Start
 
+Aprés toute ces manipulations la carte allume/éteint la LED à chaque fois que l'on appui sur le bouton
 
 ### 1.5 Modification du VHDL
 
