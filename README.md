@@ -87,6 +87,83 @@ led <= sw;
 end architecture rtl;
 ```
 ### 1.6 Faire clignoter une LED
+#Objectif :
+Utiliser un circuit séquentiel pour faire clignoter une LED connectée au FPGA. Ce clignotement est basé sur un signal d'horloge interne ralenti pour être visible à l'œil humain.
+
+#Configuration de l'horloge
+La carte DE10-Nano dispose de plusieurs horloges. Nous avons choisi l’horloge  FPGA_CLK1_50 sur le pin PIN_V11. Cette horloge fonctionne à 50 MHz et est connectée à la broche PIN_V11.
+
+#Code VHDL initial
+Le code VHDL suivant permettait de faire basculer l'état de la LED à chaque cycle d'horloge, mais à 50 MHz, le clignotement est imperceptible à l'œil humain.
+```vhd
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity led_blink is
+    port (
+        i_clk  : in std_logic;
+        i_rst_n : in std_logic;
+        o_led  : out std_logic
+    );
+end entity led_blink;
+
+architecture rtl of led_blink is
+    signal r_led : std_logic := '0';
+begin
+    process(i_clk, i_rst_n)
+    begin
+        if i_rst_n = '0' then
+            r_led <= '0';
+        elsif rising_edge(i_clk) then
+            r_led <= not r_led;
+        end if;
+    end process;
+
+    o_led <= r_led;
+end architecture rtl;
+
+```
+
+Cependant, ce code n'est pas pratique dans un contexte réel à cause de la fréquence trop élevée. Nous devons ajouter un compteur pour ralentir la fréquence de clignotement.
+
+#Code VHDL Final
+Le code final utilise un compteur pour diviser la fréquence de l'horloge. Lorsque le compteur atteint une certaine valeur, il bascule l'état de la LED et se réinitialise. Cela permet de ralentir le clignotement à une fréquence visible (~0,5 Hz).
+```vhd
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity led_blink is
+    port (
+        i_clk  : in std_logic;
+        i_rst_n : in std_logic;
+        o_led  : out std_logic
+    );
+end entity led_blink;
+
+architecture rtl of led_blink is
+    signal r_led : std_logic := '0';
+begin
+    process(i_clk, i_rst_n)
+        variable counter : natural range 0 to 5000000 := 0;
+    begin
+        if i_rst_n = '0' then
+            counter := 0;
+            r_led <= '0';
+        elsif rising_edge(i_clk) then
+            if counter = 5000000 then
+                counter := 0;
+                r_led <= not r_led;
+            else
+                counter := counter + 1;
+            end if;
+        end if;
+    end process;
+
+    o_led <= r_led;
+end architecture rtl;
+```
+
+
 ### 1.7 Chenillard !
 # 2 Petit projet : Bouncing ENSEA Logo
 
