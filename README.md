@@ -110,3 +110,77 @@ Voici le rôle de certain des signaux :
 - o_pixel_pos_x et o_pixel_pos_y : Positions en X et Y des pixels sur la zone d’affichage active.
 - o_pixel_address : Adresse du pixel obtenue par la formule suivante : o_pixel_pos_x + (h_res × o_pixel_pos_y)
 3. Rappelez le rôle des autres signaux
+
+
+```vhd
+entity hdmi_generator is
+generic (
+-- Resolution
+h_res : natural := 720;
+v_res : natural := 480;
+-- Timings magic values (480p)
+h_sync : natural := 61;
+h_fp : natural := 58;
+h_bp : natural := 18;
+v_sync : natural := 5;
+v_fp : natural := 30;
+v_bp : natural := 9
+);
+port (
+i_clk : in std_logic;
+i_reset_n : in std_logic;
+o_hdmi_hs : out std_logic;
+o_hdmi_vs : out std_logic;
+o_hdmi_de : out std_logic;
+o_pixel_en : out std_logic;
+o_pixel_address : out natural range 0 to (h_res * v_res -
+,→ 1);
+o_x_counter : out natural range 0 to (h_res - 1);
+o_y_counter : out natural range 0 to (v_res - 1);
+o_pixel_pos_x : out natural range 0 to (h_res - 1);
+o_pixel_pos_y : out natural range 0 to (v_res - 1);
+o_new_frame : out std_logic
+);
+end hdmi_generator;
+```
+### 2.1.1 Écriture du composant
+
+1. Écrivez un compteur horizontal (h_count) qui boucle de 0 à h_total, et qui
+génère le signal de synchronisation horizontal (o_hdmi_hs).
+
+2. Testez à l’aide d’un testbench. Vous pouvez réduire artificiellement les tailles
+d’images pour réduire le temps de simulation.
+
+3. Ajoutez un compteur vertical (v_count) qui s’incrémente à chaque cycle du
+compteur horizontal, et boucle de 0 à v_total. Le compteur vertical doit
+également générer le signal de synchronisation vertical (o_hdmi_vs).
+
+4. Adaptez le testbench pour tester l’ensemble.
+
+5. Déterminez les plages de h_count et v_count où les pixels sont visibles
+(zone active) et implémentez les signaux h_act et v_act pour les indiquer.
+
+6. Combinez h_act et v_act pour produire un signal o_hdmi_de indiquant si
+le générateur est dans une zone active (ligne active et pixel actif).
+
+7. Ajoutez un compteur de pixels actifs (r_pixel_counter) pour générer une
+adresse pixel o_pixel_address, qui incrémente uniquement dans les zones
+actives. Réinitialisez-le au début de chaque nouvelle image.
+
+8. Ajoutez deux compteurs pour générer les signaux o_x_counter et o_y_counter
+permettant de compter les pixels actifs.
+
+9. Testez votre composant.
+
+### 2.1.2 Implémentation sur le FPGA
+
+## 2.2 Bouncing ENSEA Logo
+
+Dans cette partie, nous utiliserons une architecture scanline rendering pour
+afficher et déplacer le logo ENSEA. Le logo sera stocké dans une mémoire RAM.
+Pour aller plus vite, le code de la RAM initialisée est fourni sur Moodle.
+
+1. Instanciez la mémoire dans votre projet
+2. Écrivez le code permettant d’afficher l’image en haut à gauche de l’écran.
+3. Testez et montrez à votre encadrant.
+### 2.2.1 Déplacer le logo
