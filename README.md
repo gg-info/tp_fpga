@@ -35,15 +35,15 @@ end architecture rtl;
 
 Nous utilisons la DE10-Nano, il y a plusiers LED et plusieurs Switches :
 
-![image](https://github.com/user-attachments/assets/46e77526-8f85-4524-bbb2-3e9bc0eab239)
-
 LED0 est sur la broche PIN_W15
 SW0 est sur la broche PIN_Y24
 Quartus ne peut pas connaître ces informations, il faut donc lui préciser.
 
 - Avant toute chose, il faut synthétiser le projet. Pour cela, on lance Analysis & Synthesis
 - Ensuite, cliquez sur : Assignments > Pin Planner
-- Nous pouvons dans cette fenetre assigner les pin identifié plus haut au composants correspondants
+- Nous pouvons dans cette fenetre assigner les pin identifié plus haut au composants correspondants :
+
+![image](https://github.com/user-attachments/assets/46e77526-8f85-4524-bbb2-3e9bc0eab239)
   
 ### 1.4 Programmation de la carte
 
