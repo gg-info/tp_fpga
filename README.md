@@ -1,4 +1,4 @@
-<p align="left"> <img src="Graphique_Logo/logo ENSEA.png" width="15%" height="auto" /> </p>
+<p align="left"> <img src="logo ENSEA.png" width="15%" height="auto" /> </p>
 
 # TP FPGA
 ### GUIFFAULT Gabriel JACQUOT Nolan
