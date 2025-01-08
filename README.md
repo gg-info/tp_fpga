@@ -230,6 +230,22 @@ end architecture rtl;
 
 ```
 
+Explication
+
+    Entrées et sorties :
+        i_clk : Signal d’horloge (50 MHz).
+        o_led : Vecteur de 6 bits contrôlant les 6 LEDs.
+
+    Signal interne :
+        shift_reg : Registre à décalage initialisé à 000001.
+
+    Processus séquentiel :
+        Compteur : Divise la fréquence de l’horloge pour ralentir le chenillard (1 mouvement toutes les ~0,1 seconde).
+        Déplacement des bits : Le bit actif est déplacé vers la droite cycliquement grâce à la concaténation shift_reg(4 downto 0) & shift_reg(5).
+
+    Assignation :
+        Le signal shift_reg est connecté directement à o_led.
+
 # 2 Petit projet : Bouncing ENSEA Logo
 
 ### Objectif :
