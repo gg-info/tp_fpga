@@ -16,7 +16,7 @@ File > New
 - Une fenêtre s’ouvre, il faut sélectionner
 VHDL File
 
-Ci dessous un exemple de composant:
+Ci dessous un exemple de composant pour alumer ou éteindre une LED via l'appui d'un bouton:
 ```vhd
 library ieee;
 use ieee.std_logic_1164.all;
@@ -33,7 +33,10 @@ end architecture rtl;
 ```
 ### 1.3 Fichier de contrainte
 
-Nous utilisons la DE10-Nano, il y a plusiers LED et plusieurs Switches.
+Nous utilisons la DE10-Nano, il y a plusiers LED et plusieurs Switches :
+
+![image](https://github.com/user-attachments/assets/46e77526-8f85-4524-bbb2-3e9bc0eab239)
+
 LED0 est sur la broche PIN_W15
 SW0 est sur la broche PIN_Y24
 Quartus ne peut pas connaître ces informations, il faut donc lui préciser.
