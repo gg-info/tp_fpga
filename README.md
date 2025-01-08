@@ -150,7 +150,7 @@ génère le signal de synchronisation horizontal (o_hdmi_hs).
 
 2. Testez à l’aide d’un testbench. Vous pouvez réduire artificiellement les tailles
 d’images pour réduire le temps de simulation.
-<p align="left"> <img src="TP_FPGA_JACQUOT/TP_FPGA/question2.png" width="15%" height="auto" /> </p>
+<p align="left"> <img src="TP_FPGA_JACQUOT/TP_FPGA/question2.png" width="85%" height="auto" /> </p>
 3. Ajoutez un compteur vertical (v_count) qui s’incrémente à chaque cycle du
 compteur horizontal, et boucle de 0 à v_total. Le compteur vertical doit
 également générer le signal de synchronisation vertical (o_hdmi_vs).
