@@ -171,6 +171,20 @@ Schéma final :
     Le schéma RTL du nouveau code inclut un compteur pour diviser la fréquence de l'horloge, basculant la LED à chaque dépassement du seuil (5000000 cycles). Voici sa représentation visuelle générée avec RTL Viewer:
       ![image-1](https://github.com/user-attachments/assets/04be889b-ccfe-47a3-aee7-816865387acf)
 
+Analyse des signaux
+
+Horloge (i_clk) :
+  -Utilisée pour synchroniser les transitions dans le circuit. Connectée à PIN_V11.
+  
+Signal de reset (i_rst_n) :
+  -Permet de réinitialiser le circuit en forçant l'état initial de la LED (0) et du compteur.
+  -La notation _n indique que le signal est actif bas, une convention courante en électronique numérique.
+  -Connecté au bouton-poussoir KEY0 sur la carte.
+
+Signal r_led :
+  -Contrôle interne de l'état de la LED.
+  -Assigné à la sortie o_led.
+
 ### 1.7 Chenillard !
 # 2 Petit projet : Bouncing ENSEA Logo
 
