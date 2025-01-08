@@ -90,7 +90,7 @@ end architecture rtl;
 # Objectif :
 Utiliser un circuit séquentiel pour faire clignoter une LED connectée au FPGA. Ce clignotement est basé sur un signal d'horloge interne ralenti pour être visible à l'œil humain.
 
-## Configuration de l'horloge
+### Configuration de l'horloge
 La carte DE10-Nano dispose de plusieurs horloges. Nous avons choisi l’horloge  FPGA_CLK1_50 sur le pin PIN_V11. Cette horloge fonctionne à 50 MHz et est connectée à la broche PIN_V11.
 
 ## Code VHDL initial
@@ -162,7 +162,14 @@ begin
     o_led <= r_led;
 end architecture rtl;
 ```
+###Schéma correspondant
 
+Schéma initial :
+    Le schéma RTL montre une simple bascule (D flip-flop) pilotée par l'horloge et le signal i_rst_n. Cependant, cette configuration ne permettait pas de ralentir le clignotement.
+      ![image](https://github.com/user-attachments/assets/f56b3571-ad02-473f-9b4a-8f1751898472)
+Schéma final :
+    Le schéma RTL du nouveau code inclut un compteur pour diviser la fréquence de l'horloge, basculant la LED à chaque dépassement du seuil (5000000 cycles). Voici sa représentation visuelle générée avec RTL Viewer:
+      ![image-1](https://github.com/user-attachments/assets/04be889b-ccfe-47a3-aee7-816865387acf)
 
 ### 1.7 Chenillard !
 # 2 Petit projet : Bouncing ENSEA Logo
