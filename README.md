@@ -4,6 +4,9 @@
 ### GUIFFAULT Gabriel JACQUOT Nolan
 # 1 Tutoriel Quartus
 ### 1.1 Création d’un projet
+
+L'objectif de ce tutoriel est de nous guider dans la création d'un projet simple avec Quartus, utilisant un FPGA DE10-Nano pour contrôler une LED via un switch. Le document présente les étapes nécessaires pour configurer le projet, écrire du code VHDL, assigner les broches et programmer la carte.
+
 Pour creer le projet sur Quartus :
 - File > New Project Wizard
 - choisir le FPGA suivant : 5CSEBA6U23I7
